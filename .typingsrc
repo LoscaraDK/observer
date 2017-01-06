@@ -1,0 +1,4 @@
+{
+    "rejectUnauthorized": false,
+    "proxy":"http://proxy3.cetip.net.br:3128"
+}

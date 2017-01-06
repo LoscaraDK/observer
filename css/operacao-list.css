@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+.container-filter {
+    width: 40%;
+}
+
+.container {
+    margin-top: 50px;
+    width: 700px;
+}
+
+.panel-default {
+    border-color: black;
+}
+
+.panel-default > .panel-heading {
+    background: #009846 none repeat scroll 0 0;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.panel-footer {
+    background: #009846 none repeat scroll 0 0;
+}
+
+.btn-primary {
+    background-color: #004e69;
+    border-color: #004e69;
+    color: #fff;
+}
+
+.btn-block {
+    text-align: center;
+}
+
+.table {
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+.form-control {
+    margin-bottom: 5px;
+}
+
+.selecionado > td {
+    background: #009846 none repeat scroll 0 0;
+}
+
+.negrito {
+    font-weight: bold;
+}
+/* marca a primeira linha da tabela com a cor desejada*/
+
+.table-striped > tbody > tr:first-child > th {
+    background: #009846 none repeat scroll 0 0;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+}
+
+.classOrdem {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.mdp-calendar-monthyear, .mdp-datepicker-year, .mdp-calendar-week-days, .md-icon-button, .mdp-calendar-days .md-button {
+    font-size: 15px;
+}
+
+.tamanho-calendario{
+    max-width: 30px;
+    margin-top: 10px;
+}
+
+.busca{
+    padding-bottom: 10px;
+}
+
+.seleciona-evento{
+    padding-top: 15px;
+}
+
+div.operacaoBox{
+    margin-left:100px;
+    text-align: left;
+    margin:5px auto;
+    width:100%;
+    position:relative;
+    top:5px;
+    border:1px solid #262626;
+    padding-left:60px;
+}
+
+div.operacaoBox label {
+    width:200px;
+}

@@ -1,0 +1,28 @@
+  <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+      version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+      <persistence-unit name="prototipo" transaction-type="RESOURCE_LOCAL">
+          <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+          <class>br.com.cetip.observer.hibernate.entity.RelGrpTpOpObjServ</class>
+          <class>br.com.cetip.observer.hibernate.entity.TipoIf</class>
+          <class>br.com.cetip.observer.hibernate.entity.TipoOperacao</class>
+          <class>br.com.cetip.observer.hibernate.entity.TipoOperObjetoServ</class>
+          <class>br.com.cetip.observer.hibernate.entity.VmContasInfohub</class>
+          <class>br.com.cetip.observer.hibernate.entity.SituacaoOperacao</class>
+          <class>br.com.cetip.observer.hibernate.entity.Operacao</class>
+          <properties>
+              <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+              <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
+              <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+              <property name="javax.persistence.jdbc.user" value="cetip_aplic" />
+              <property name="javax.persistence.jdbc.password" value="cetip" />
+               
+              <property name="hibernate.show_sql" value="true" />
+              <property name="hibernate.format_sql" value="false" />
+              <property name="hibernate.use_sql_comments" value="false" />
+              <property name="hibernate.jdbc.wrap_result_sets" value="false" />
+              <property name="hibernate.hibernate.cache.use_query_cache" value="true" />
+              <property name="hibernate.hbm2ddl.auto" value="validate" />
+          </properties>
+      </persistence-unit>
+  </persistence> 

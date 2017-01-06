@@ -1,0 +1,26 @@
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading">Operações</div>
+		<div class="panel-body">
+				<div class="operacaoBox">
+					<label><span>C&oacute;digo Opera&ccedil;&atilde;o</span></label>
+					<label><span>Conta Parte</span></label>
+					<label><span>Nome Parte</span></label>
+					<label><span>Conta Contraparte</span></label>
+					<label><span>Nome Contraparte</span></label>
+				</div>
+				<div ng-repeat="operacao in operacoes">
+
+						<div class="operacaoBox">
+						<label><span>{{operacao.codOperacao}}</span></label>
+						<label><span>{{operacao.codContaParte}}</span></label>
+						<label><span>{{operacao.nomSimplificadoParte}}</span></label>
+						<label><span>{{operacao.codContaContraparte}}</span></label>
+						<label><span>{{operacao.nomSimplificadoContraparte}}</span></label>
+						</div>
+				</div>
+
+		</div>
+		</div>
+	</div>
+</div>

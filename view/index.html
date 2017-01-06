@@ -1,0 +1,61 @@
+<html ng-app="operacao">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/angular-material/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="node_modules/mdPickers/dist/mdPickers.min.css">
+	<link rel="stylesheet" type="text/css" href="css/operacao-list.css">
+	
+	<link rel="stylesheet" href="node_modules/nvd3/build/nv.d3.css">
+	<!--The problem was that I was developing against the minified/compressed version (assuming it was like other JS libraries). The uncompressed version includes a readable error message.-->
+
+	<script src="node_modules/angular/angular.js"></script>
+	<script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="node_modules/angular-messages/angular-messages.min.js"></script>
+	<script src="node_modules/angular-resource/angular-resource.js"></script>
+	<script src="node_modules/angular-material/angular-material.min.js"></script>
+	<script src="node_modules/angular-aria/angular-aria.min.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+	<script src="node_modules/moment/min/moment.min.js"></script>
+	<script src="node_modules/moment/locale/pt-br.js"></script>
+	<script src="node_modules/mdPickers/dist/mdPickers.min.js"></script>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	
+	<script src="node_modules/d3/d3.js"></script>
+	<script src="node_modules/nvd3/build/nv.d3.js"></script> <!-- or use another assembly -->
+	<script src="node_modules/angular-nvd3/dist/angular-nvd3.js"></script>
+
+	<script src="js/app.js"></script>
+	<script src="js/controllers/operacaoCtrl.js"></script>
+	<script src="js/config/router.js"></script>
+	<script src="js/factory/operacaoFactory.js"></script>
+	<script src="js/controllers/volumeFinanceiroDiarioCtrl.js"></script>
+	<script src="js/factory/volumeFinanceiroDiarioFactory.js"></script>
+	<!--script src="i18n/angular-locale_pt-br.js"></script-->
+	
+	<script src="js/component/observerChartWidget.js"></script>
+	<script src="js/controllers/volumeFinanceiroDiarioOpersPendLiquidacaoCtrl.js"></script>
+	<script src="js/controllers/volumeFinanceiroDiarioOpersFinalizadasCtrl.js"></script>
+	<script src="js/controllers/volumeFinanceiroDiarioOpersPendCtrParte.js"></script>
+	
+	<title>Operações</title>
+</head>
+
+<body>
+
+<div ui-view="operacoesFinalizadas"></div>
+<div ui-view="operacoesPendentesLiquidacao"></div>
+<div ui-view="operacoesPendentesContraParte"></div>
+
+		<!--
+filtros:
+number ex:(100 | number, 100 | number:2 -> casas decimais),
+currency -> é possivel baixar o angular-locale e depois importar o script.
+limitTo:3 - limita o numero de caracteres em uma string
+-->
+<div ng-include="'partials/footer.html'"></div>
+</body>
+
+</html>
