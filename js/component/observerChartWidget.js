@@ -1,20 +1,12 @@
 function ObserverChartWidgetCtrl($scope){
 	var ctrl = this;
-	console.log('entrei no componente');
-
 	
 	ctrl.$onInit = function(){
-		console.log(ctrl.dados);
-		console.log(ctrl.options);
-		console.log(ctrl.volume);
-		
 		ctrl.volume = [{
-		    key: "Teste",
+		    key: "Observer Chart Widget",
 		    values: ctrl.dados
 		}];
-	}
-	
-	console.log(ctrl.volume);
+	};
 };
 
 

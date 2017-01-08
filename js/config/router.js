@@ -20,23 +20,28 @@ angular.module('operacao').config(['$stateProvider','$urlRouterProvider', functi
         
         views:{
 	        operacoesFinalizadas:{        	
-	        	template: "<oc-widget title='{{title}}' options='options' dados='volumesPorProduto'></oc-widget>",
-		        controller: "VolumeFinanceiroDiarioOpersFinalizadasCtrl",
+	        	template: "<oc-widget title={{ctrl.title}} options=ctrl.options dados=ctrl.volumes></oc-widget>" ,
+		        controller: "VolumeFinanceiroDiarioOpersFinalizadasCtrl as ctrl",
 		        resolve: VolumeFinanceiroDiarioOpersFinalizadasCtrl.resolve
 	        },
 	        operacoesPendentesLiquidacao:{        	
-	        	template: "<oc-widget title='{{title}}' options='options' dados='volumesPorProduto'></oc-widget>",
-		        controller: "VolumeFinanceiroDiarioOpersPendLiquidacaoCtrl",
+	        	template: "<oc-widget title={{ctrl.title}} options=ctrl.options dados=ctrl.volumes></oc-widget>",
+		        controller: "VolumeFinanceiroDiarioOpersPendLiquidacaoCtrl as ctrl",
 		        resolve: VolumeFinanceiroDiarioOpersPendLiquidacaoCtrl.resolve
 	        },
 	        operacoesPendentesContraParte:{        	
-	        	template: "<oc-widget title='{{title}}' options='options' dados='volumesPorProduto'></oc-widget>",
-		        controller: "VolumeFinanceiroDiarioOpersPendCtrParte",
+	        	template: "<oc-widget title={{ctrl.title}} options=ctrl.options dados=ctrl.volumes></oc-widget>",
+		        controller: "VolumeFinanceiroDiarioOpersPendCtrParte as ctrl",
 		        resolve: VolumeFinanceiroDiarioOpersPendCtrParte.resolve
 	        }
-	        
-	        
         }
     })
+    
+    .state("dashboard",{
+        url: "/dashboard",
+        templateUrl: "js/gridster/dashboard.html",
+        controller: "dashboardCtrl"
+    })
+    
     ;
 }]);

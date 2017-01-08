@@ -1,13 +1,14 @@
 function VolumeFinanceiroDiarioOpersPendCtrParte($scope,
 									$stateParams,
 									_volumesPorProduto) {
-	$scope.volumesPorProduto = _volumesPorProduto;
-	$scope.title = "Volume financeiro de operações pendentes contraparte";
-	$scope.options = {
+	
+	var ctrl = this;
+	
+	var title = "Volume financeiro de operações pendentes contraparte";
+	var options = {
 		    chart: {
 		        type: 'discreteBarChart',
 		        height: 350,
-		        width:550,
 		        margin : {
 		            top: 20,
 		            right: 20,
@@ -30,6 +31,12 @@ function VolumeFinanceiroDiarioOpersPendCtrParte($scope,
 		        }
 		    }
 		};
+		//pattern para expor os valores privados para publicos, poderia também setar direto no ctrl
+		angular.extend(ctrl, {
+		  volumes: _volumesPorProduto,
+		  title: title,
+		  options: options
+	    });
 };
 
 VolumeFinanceiroDiarioOpersPendCtrParte.$inject = ["$scope",

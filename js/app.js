@@ -6,6 +6,9 @@ angular.module('operacao', ["ngMaterial",
                             "ui.router",
                             "nvd3",
                             "observerChartWidget",
-                            "ngResource"
+                            "ngResource",
+                            "mainApp.controllers",
+                            "gridster",
+                            'ui.bootstrap'
 
 ]);
