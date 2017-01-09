@@ -2,8 +2,8 @@
 
 angular.module('mainApp.controllers',[])
 
-  .controller('dashboardCtrl', ['$scope', '$timeout', 'generator',
-    function($scope, $timeout, generator) {
+  .controller('dashboardCtrl', ['$scope', '$timeout', 'generator','$injector','$stateParams',
+    function($scope, $timeout, generator,$injector,$stateParams) {
       $scope.gridsterOptions = {
         margins: [20, 20],
         columns: 4,
@@ -32,6 +32,10 @@ angular.module('mainApp.controllers',[])
           }
         }
       };
+      
+      //Chamar um serviço por injection
+      console.log($injector.get('volumeFinanceiroAPI')['getVolumeFinanceiroDiario']().query({data:$stateParams.data,codigoSituacaoOperacao:43}));
+      
       //console.log(generator)
       $scope.dashboard = {
         widgets: [{
@@ -70,19 +74,44 @@ angular.module('mainApp.controllers',[])
             data: generator.boxPlotChart.data(),
             api: {}
           }
-        }, {
-          col: 0,
-          row: 1,
-          sizeY: 1,
-          sizeX: 2,
-          name: "Discrete Bar Chart Widget",
-          type: 'discreteBarChart',
-          chart: {
-            options: generator.discreteBarChart.options(),
-            data: generator.discreteBarChart.data(),
-            api: {}
+        }, 
+        
+//        {
+//          col: 0,
+//          row: 1,
+//          sizeY: 1,
+//          sizeX: 2,
+//          name: "Discrete Bar Chart Widget",
+//          type: 'discreteBarChart',
+//          chart: {
+//            options: generator.discreteBarChart.options(),
+//            data: generator.discreteBarChart.data(),
+//            api: {}
+//          }
+//        }
+        
+        {
+            col: 0,
+            row: 1,
+            sizeY: 1,
+            sizeX: 2,
+            name: "Discrete Bar Chart Widget 2",
+            type: 'discreteBarChart',
+            chart: {
+              options: generator.discreteBarChart.options(),
+              data: 
+            	  [
+            	   {
+            	  key: 'teste', 
+            	  values: $injector.get('volumeFinanceiroAPI')['getVolumeFinanceiroDiario']().query({data:$stateParams.data,codigoSituacaoOperacao:43}),
+            	   }
+            	  ],
+              api: {}
+            }
           }
-        }, {
+
+        
+        , {
           col: 2,
           row: 1,
           sizeY: 1,
@@ -323,35 +352,65 @@ angular.module('mainApp.controllers',[])
         },
         data: stackedAreaChartData
       },
+//      discreteBarChart: {
+//        options: function(){
+//          return {
+//            chart: {
+//              type: 'discreteBarChart',
+//              margin : {
+//                top: 10,
+//                right: 20,
+//                bottom: 35,
+//                left: 55
+//              },
+//              x: function(d){return d.label;},
+//              y: function(d){return d.value;},
+//              showValues: true,
+//              valueFormat: function(d){
+//                return d3.format(',.4f')(d);
+//              },
+//              transitionDuration: 500,
+//              xAxis: {
+//                axisLabel: 'X Axis',
+//                axisLabelDistance: -8
+//              },
+//              yAxis: {
+//                axisLabel: 'Y Axis',
+//                axisLabelDistance: -10
+//              }
+//            }
+//          }
+//        }
       discreteBarChart: {
-        options: function(){
-          return {
-            chart: {
-              type: 'discreteBarChart',
-              margin : {
-                top: 10,
-                right: 20,
-                bottom: 35,
-                left: 55
-              },
-              x: function(d){return d.label;},
-              y: function(d){return d.value;},
-              showValues: true,
-              valueFormat: function(d){
-                return d3.format(',.4f')(d);
-              },
-              transitionDuration: 500,
-              xAxis: {
-                axisLabel: 'X Axis',
-                axisLabelDistance: -8
-              },
-              yAxis: {
-                axisLabel: 'Y Axis',
-                axisLabelDistance: -10
+          options: function(){
+            return {
+              chart: {
+                type: 'discreteBarChart',
+                margin : {
+                  top: 10,
+                  right: 20,
+                  bottom: 35,
+                  left: 150
+                },
+                x: function(d){return d.codTipoIF;},
+                y: function(d){return d.volFinanceiro;},
+                showValues: true,
+                valueFormat: function(d){
+                  return d3.format(',.4f')(d);
+                },
+                transitionDuration: 500,
+                xAxis: {
+                  axisLabel: 'Tipos de Produto',
+                  axisLabelDistance: -8
+                },
+                yAxis: {
+                  axisLabel: 'Volume Financeiro',
+                  axisLabelDistance: 70
+                }
               }
             }
           }
-        },
+      ,
         data: discreteBarChartData
       },
       pieChart: {

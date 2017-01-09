@@ -38,7 +38,7 @@ angular.module('operacao').config(['$stateProvider','$urlRouterProvider', functi
     })
     
     .state("dashboard",{
-        url: "/dashboard",
+        url: "/dashboard/:data",
         templateUrl: "js/gridster/dashboard.html",
         controller: "dashboardCtrl"
     })
