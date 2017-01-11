@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -13,16 +14,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import br.com.cetip.observer.hibernate.dao.OperacaoDAO;
+import br.com.cetip.observer.hibernate.dao.IOperacaoDAO;
 import br.com.cetip.observer.hibernate.entity.Operacao;
 
 @Path("/operacao")
 public class OperacaoService {
-
+	
+	@Inject
+	private IOperacaoDAO dao;
+	
 	@GET
 	@Path("/{data}/{page}")
 	@Produces({MediaType.APPLICATION_JSON,MediaType.TEXT_PLAIN})
@@ -39,7 +42,7 @@ public class OperacaoService {
 		Date d = sdf.parse(msg);		
 		c.setTime(d);
 		
-		List<Operacao> lista = OperacaoDAO.getInstance().getByDatePaginated(c,page);
+		List<Operacao> lista = dao.getByDatePaginated(c,page);
 		
 		System.out.println("tamanho da lista > "+lista.size());
 				

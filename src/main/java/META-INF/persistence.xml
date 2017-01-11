@@ -10,6 +10,8 @@
           <class>br.com.cetip.observer.hibernate.entity.VmContasInfohub</class>
           <class>br.com.cetip.observer.hibernate.entity.SituacaoOperacao</class>
           <class>br.com.cetip.observer.hibernate.entity.Operacao</class>
+          <class>br.com.cetip.observer.hibernate.entity.Chart</class>
+          <class>br.com.cetip.observer.hibernate.entity.Widget</class>
           <properties>
               <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
               <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.driver.OracleDriver" />
